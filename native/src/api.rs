@@ -33,6 +33,7 @@ pub fn platform() -> Platform {
     //
     // Furthermore, in Rust, the last expression in a function is the return value and does
     // not have the trailing semicolon. This entire if-else chain forms a single expression.
+    println!("Hello from Rust!");
     if cfg!(windows) {
         Platform::Windows
     } else if cfg!(target_os = "android") {

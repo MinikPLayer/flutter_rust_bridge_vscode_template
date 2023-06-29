@@ -1,0 +1,58 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "flutter",
+            "command": "flutter",
+            "args": [
+                "run",
+                "-d",
+                "windows"
+            ],
+            "group": "test",
+            "problemMatcher": [
+                "$dart-build_runner"
+            ],
+            "label": "FlutterRun",
+            "detail": ""
+        },
+        {
+            "type": "flutter",
+            "command": "flutter",
+            "args": [
+                "build",
+                "windows"
+            ],
+            "group": "build",
+            "problemMatcher": [
+                "$dart-build_runner"
+            ],
+            "label": "FlutterBuildWindows",
+            "detail": ""
+        },
+        {
+            "type": "shell",
+            "command": "scripts\\build_native.bat Debug",
+            "group": "build",
+            "label": "BuildNative",
+            "detail": "",
+            "dependsOn": [
+                "CargoBuild"
+            ]
+        },
+        {
+            "label": "Rust fast launch [No debugger]",
+            "type": "shell",
+            "command": "scripts\\launch_native.bat"
+        },
+        {
+            "label": "Generate bindings",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "scripts\\gen_bindings.py"
+            ],
+            "problemMatcher": []
+        }
+    ],
+}
