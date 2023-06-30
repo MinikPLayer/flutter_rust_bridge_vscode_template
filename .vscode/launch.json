@@ -5,18 +5,21 @@
             "type": "lldb",
             "request": "launch",
             "name": "Rust [Debug]",
-            "program": "${workspaceFolder}\\build\\windows\\runner\\Debug\\flutter_rust_bridge_template.exe",
+            "program": "${workspaceFolder}\\build\\windows\\runner\\Release\\flutter_rust_bridge_template.exe",
             "args": [],
             "cwd": "${workspaceRoot}",
             "sourceLanguages": [
-                "rust"
+                "rust",
             ],
+            "env": {
+                "RUST_BACKTRACE": "1",
+            },
             "preLaunchTask": "BuildNative",
         },
         {
             "name": "Flutter [Debug]",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
         },
         {
             "name": "Rust Fast Launch",
