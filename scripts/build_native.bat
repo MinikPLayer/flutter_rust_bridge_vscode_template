@@ -3,9 +3,12 @@
 if "%1" == "" goto error
 if NOT "%1" == "Release" if NOT "%1" == "Debug" goto error
 
+if "%2" == "" goto error
+if NOT "%2" == "Release" if NOT "%2" == "Debug" goto error
+
 cd native
-echo Building cargo in %1 mode...
-if "%1" == "Release" (cargo build --release) else (cargo build)
+echo Building cargo in %2 mode...
+if "%2" == "Release" (cargo build --release) else (cargo build)
 cd ..
 echo:
 echo Copying native.dll...
@@ -16,5 +19,5 @@ echo Done!
 exit 0
 
 :error
-echo Usage: build_native.bat [Release/Debug]
+echo Usage: build_native.bat [Release/Debug - Flutter directory] [Release/Debug - Cargo mode]
 exit 1
